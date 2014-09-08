@@ -3,7 +3,7 @@ package AstroDating::Common;
 use strict;
 use warnings;
 use base 'Exporter';
-use Mojo::Log;
+use Log::Handler;
 use Config::Any;
 use Data::Dumper;
 use Sys::Hostname;
@@ -22,7 +22,15 @@ sub reload_config {
 	}
 	$config =  Config::Any->load_files( { files => ['etc/astrodating.ini'], use_ext => 1 } )->[0]->{'etc/astrodating.ini'}->{'AstroDating'} 
 		or die("[" . scalar (localtime) . "]: Unable to open configuration file");
-	$log = Mojo::Log->new(path => $config->{'logfile'} || 'logs/astrodating-engine.log', level => 'info');
+	$log = Log::Handler->new();
+	
+	$log->add( 
+		file => { 
+			filename => $config->{'logfile'} || 'logs/astrodating-engine.log',
+			maxlevel => 'debug',
+			minlevel => 'warning'
+		}
+	)
 	$log->info("Configuration Loaded");
 }
 
