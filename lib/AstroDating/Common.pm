@@ -30,7 +30,7 @@ sub reload_config {
 			maxlevel => 'debug',
 			minlevel => 'warning'
 		}
-	)
+	);
 	$log->info("Configuration Loaded");
 }
 
