@@ -160,11 +160,9 @@ sub userevent_ami_event {
 	my ($asterisk, $event) = @_;	
 	given ($event->{'UserEvent'}) { 
 		when (/CallerEnterQueue/) {
-			#
+			return;
 		}
 	}	
-	
-	
 }
 
 1;
