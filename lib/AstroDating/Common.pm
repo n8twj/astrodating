@@ -8,9 +8,10 @@ use Config::Any;
 use Data::Dumper;
 use Sys::Hostname;
 
-our @EXPORT = qw($AMI $config $log $engine $active_data);
+our @EXPORT = qw($AMI $AMI_VER $config $log $engine $active_data);
 
 our $AMI;
+our $AMI_VER;
 our $config;
 our $log;
 our $engine;
