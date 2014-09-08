@@ -158,6 +158,7 @@ sub hangup_ami_event {
 
 sub userevent_ami_event {
 	my ($asterisk, $event) = @_;	
+	use 5.10.1;
 	given ($event->{'UserEvent'}) { 
 		when (/CallerEnterQueue/) {
 			return;
