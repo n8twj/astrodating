@@ -17,7 +17,6 @@ sub new {
 	my $class = shift;
 	my $self = {};
     bless($self, $class);
-	$self->ami_attempt_connection();
 	return $self;
 }
 sub ami_error_recovery {
