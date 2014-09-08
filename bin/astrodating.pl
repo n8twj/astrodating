@@ -11,6 +11,9 @@ my $pp = Proc::PID::File->new();
 
 require AstroDating::Engine;
 my $engine = new AstroDating::Engine();
+
+$engine->ami_attempt_connection();
+
 EV::loop;
 
 1;
